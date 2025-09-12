@@ -5,18 +5,18 @@ If you are wanting to help development please read through this file to know wha
 machine so you can get started
 
 
-**Step 1**
+Step 1
 Clone Repostiory onto your machine
 Create a python virtual enviroment
 
-**Step 2**
+Step 2
 once you have booted up the VENV
 use this command to install all neccicary reqs:
 --
 pip install -r requirements.txt
 --
 
-**Step 3**
+Step 3
 Start coding!!
 
 
