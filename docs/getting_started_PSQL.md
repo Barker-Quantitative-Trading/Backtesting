@@ -106,3 +106,22 @@ COMMENT ON COLUMN ohlcv.interval IS 'Resolution of the candle (1m, 5m, 1h, 1d)';
 COMMENT ON COLUMN ohlcv.adj_close IS 'Close price adjusted for splits/dividends';
 
 -- Done! You now have a flexible, well-documented schema.
+
+### Basic PstgreSQL Commands
+
+| Command              | Description                               |
+|----------------------|-------------------------------------------|
+| `\l`                 | List all databases                        |
+| `\c database_name`   | Connect to a specific database            |
+| `\dt`                | List all tables in the current database   |
+| `\d table_name`      | Show schema/details of a table            |
+| `\du`                | List all roles and users                  |
+| `\dn`                | List all schemas                          |
+| `\df`                | List functions                            |
+| `\q`                 | Quit/exit `psql`                          |
+| `\?`                 | Show help for `psql` commands             |
+| `\x`                 | Toggle expanded output (pretty print)     |
+| `SELECT version();`  | Show PostgreSQL version                   |
+| `CREATE DATABASE db;`| Create a new database                     |
+| `DROP DATABASE db;`  | Delete a database                         |
+| `\password user`     | Change password for a user                |
