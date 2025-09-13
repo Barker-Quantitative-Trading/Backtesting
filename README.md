@@ -12,17 +12,19 @@ Clone Repostiory onto your machine
 Step 2
 --
 Create a python virtual enviroment
-> python3 -m venv .venv
+> python3 -m venv env <sub> (env is the name of the environment. You can change this to what you want.) </sub>
 
 Step 3
 --
-once you have booted up the VENV
-use this command to install all neccicary reqs:
+Start the environment
+> source env/bin/activate
 
-pip install -r requirements.txt
+Step 4
+--
+Use the command below to install all necessary libraries
+> pip install -r requirements.txt
 
-
-Step 3
+Step 5
 --
 Start coding!!
 
