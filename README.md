@@ -18,12 +18,12 @@ If you do not know how to clone yet please follow the link below.
 Step 3
 --
 Create a python virtual enviroment
-> python3 -m venv env <sub> (env is the name of the environment. You can change this to what you want.) </sub>
+> python3 -m venv env <sub> (env is the name of the environment. You can change this to .env, .venv, or venv) </sub>
 
 Step 4
 --
 Start the environment
-> source env/bin/activate
+> source env/bin/activate <sub> (If you changed the name of the enviornment in the previous step reflect it in this command.) </sub>
 
 Step 5
 --
