@@ -4,7 +4,7 @@ This guide covers installing PostgreSQL, starting the server, connecting, creati
 
 ---
 
-## 1️⃣ Install PostgreSQL
+## 1 Install PostgreSQL
 
 | Platform      | Command / Notes |
 |---------------|----------------|
@@ -13,7 +13,7 @@ This guide covers installing PostgreSQL, starting the server, connecting, creati
 
 ---
 
-## 1.5️⃣ Start PostgreSQL Server
+## 2 Start PostgreSQL Server
 
 | Platform      | Command / Notes |
 |---------------|----------------|
@@ -22,7 +22,7 @@ This guide covers installing PostgreSQL, starting the server, connecting, creati
 
 ---
 
-## 1.75️⃣ Connect to PostgreSQL
+## 3 Connect to PostgreSQL
 
 | Platform      | Command / Notes |
 |---------------|----------------|
@@ -31,7 +31,7 @@ This guide covers installing PostgreSQL, starting the server, connecting, creati
 
 ---
 
-## 2️⃣ Create the `market_data` Database
+## 4 Create the `market_data` Database
 
 ```sql
 CREATE DATABASE market_data;
@@ -106,16 +106,3 @@ COMMENT ON COLUMN ohlcv.interval IS 'Resolution of the candle (1m, 5m, 1h, 1d)';
 COMMENT ON COLUMN ohlcv.adj_close IS 'Close price adjusted for splits/dividends';
 
 -- Done! You now have a flexible, well-documented schema.
-
-
-
-
----
-```
-
-**Basic Postgresql Commands**
-
-|\l                  | List databases   |
-|\c database_name    | Connect to a database    |
-|\dt                 | List tables  |
-|\q                  | Exit psql    |
