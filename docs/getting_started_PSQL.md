@@ -106,6 +106,7 @@ COMMENT ON COLUMN ohlcv.interval IS 'Resolution of the candle (1m, 5m, 1h, 1d)';
 COMMENT ON COLUMN ohlcv.adj_close IS 'Close price adjusted for splits/dividends';
 
 -- Done! You now have a flexible, well-documented schema.
+```
 
 ### Basic PstgreSQL Commands
 

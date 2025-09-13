@@ -67,8 +67,6 @@ docker exec -i market_db pg_restore \
 ```
 (flags to get around having a different Postgres user)
 
-To Res
-
 
 If you **fail a restore** you can remove it and try again using:
 ----
