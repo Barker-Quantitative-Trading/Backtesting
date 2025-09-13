@@ -7,7 +7,9 @@ machine so you can get started
 
 Step 1
 --
-Clone Repostiory onto your machine
+Clone Repostiory onto your machine.
+If you do not have cloning capabilities yet please follow the link below.
+> [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 Step 2
 --
