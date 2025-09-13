@@ -32,6 +32,6 @@ Use the command below to install all necessary libraries
 
 Step 6
 --
-Start coding!!
+Happy Coding! :rocket: :rocket:
 
 
