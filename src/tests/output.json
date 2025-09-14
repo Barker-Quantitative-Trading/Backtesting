@@ -25243,5 +25243,20 @@
         "adjVolume": 50208578,
         "divCash": 0.0,
         "splitFactor": 1.0
+    },
+    {
+        "date": "2025-09-12T00:00:00.000Z",
+        "close": 234.07,
+        "high": 234.51,
+        "low": 229.02,
+        "open": 229.22,
+        "volume": 55824216,
+        "adjClose": 234.07,
+        "adjHigh": 234.51,
+        "adjLow": 229.02,
+        "adjOpen": 229.22,
+        "adjVolume": 55824216,
+        "divCash": 0.0,
+        "splitFactor": 1.0
     }
 ]

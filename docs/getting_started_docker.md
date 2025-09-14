@@ -40,7 +40,7 @@ Using the docker to run postgres
 
 
 ```bash
-docker exec -it market_db psql -U devuser -d market_data
+docker exec -it market_db psql -U postgres -d market_data
 ```
 - -it = interactive terminal
 - psql is the PostgreSQL CLI client
