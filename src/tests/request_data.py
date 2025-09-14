@@ -15,3 +15,11 @@ with open("output.json", "w") as f:
 #json_string = response.text  # this is the raw JSON string
 #with open("output.json", "w") as f:
 #    f.write(json_string)
+
+
+# Requesting Instrament data
+#-------------------------------------------------
+
+requestResponse = requests.get("https://api.tiingo.com/tiingo/daily/aapl?token=35943def70200e950c1dfa202bfcb2a4bb0b94a7", headers=headers)
+data2 = requestResponse.json()
+print(data2)
