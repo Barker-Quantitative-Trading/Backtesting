@@ -3,7 +3,7 @@
 ## 1. Overview
 The goal of this backtesting system is to simulate trading strategies on historical market data.  
 It allows us to evaluate profitability, risk, accuracy, and robustness **before** moving to live trading.
-**Note:** Backtesting is a vital part of strategy development, but no matter how rigorous, it cannot perfectly predict future performance. Treat backtests as supporting evidence, not guarantees. Real significance comes from live trading validation. Ultimately, most professionals place far greater weight on live trading results than on backtests alone.
+> **Note:** Backtesting is a vital part of strategy development, but no matter how rigorous, it cannot perfectly predict future performance. Treat backtests as supporting evidence, not guarantees. Real significance comes from live trading validation. Ultimately, most professionals place far greater weight on live trading results than on backtests alone.
 
 **Key objectives:**
 - Flexible enough to support multiple strategies.
