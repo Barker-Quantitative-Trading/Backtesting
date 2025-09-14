@@ -7,27 +7,27 @@ machine so you can get started
 Step 1
 --
 If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow this method.
-> Enter command: 
-    > ssh-keygen -t ed25519 -C "your_email@example.com" (replace your_email@example.com with your email)
-> Press enter for all prompts
-> Enter command:
-    > pbcopy < ~/.ssh/id_ed25519.pub (you should be able to paste the key now)
-> Go to [this](link https://github.com/settings/keys) webpage to setup an ssh key
-    > click "New SSH Key"
-    > Add whatever title you would like
-    > Paste the key that was saved into the Key box and then click "Add SSH Key"
-> Now verify your connection by entering the command:
-    > ssh -T git@github.com
-    > You may be asked if you are sure you want to continue to connect. Follow the prompts to continue.
-    > This should print "Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access."
+> - Enter command: 
+        - ssh-keygen -t ed25519 -C "your_email@example.com" (replace your_email@example.com with your email)
+> - Press enter for all prompts
+> - Enter command:
+        - pbcopy < ~/.ssh/id_ed25519.pub (you should be able to paste the key now)
+> - Go to [this](link https://github.com/settings/keys) webpage to setup an ssh key
+        - click "New SSH Key"
+        - Add whatever title you would like
+        - Paste the key that was saved into the Key box and then click "Add SSH Key"
+> - Now verify your connection by entering the command:
+        - ssh -T git@github.com
+        - You may be asked if you are sure you want to continue to connect. Follow the prompts to continue.
+        - This should print "Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access."
 
 Step 2
 --
 Clone Repostiory onto your machine.
 If you do not know how to clone yet please follow the command below or use the link to learn how to clone.
-> Command:
-    > git clone git@github.com:Barker-Quantitative-Trading/Backend.git
-> [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+> - Command:
+        - git clone git@github.com:Barker-Quantitative-Trading/Backend.git
+> - [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 Step 3
 --
