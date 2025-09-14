@@ -44,7 +44,7 @@ CREATE DATABASE market_data;
 **Connect to the database**
 \c market_data;
 
--- 2. Create Instruments table
+-- 1. Create Instruments table
 CREATE TABLE instruments (
     id SERIAL PRIMARY KEY,
     symbol TEXT NOT NULL UNIQUE,
@@ -59,7 +59,7 @@ COMMENT ON TABLE instruments IS 'Stores metadata for financial instruments';
 COMMENT ON COLUMN instruments.symbol IS 'Instrument symbol (e.g., AAPL, BTC-USD)';
 COMMENT ON COLUMN instruments.metadata IS 'Flexible JSONB for additional info like tick size, lot size';
 
--- 3. Create Tick Data table
+-- 2. Ticks table
 CREATE TABLE ticks (
     id BIGSERIAL PRIMARY KEY,
     instrument_id INT NOT NULL REFERENCES instruments(id) ON DELETE CASCADE,
@@ -69,16 +69,19 @@ CREATE TABLE ticks (
     bid NUMERIC(18,8),
     ask NUMERIC(18,8),
     bid_size NUMERIC(18,8),
-    ask_size NUMERIC(18,8)
+    ask_size NUMERIC(18,8),
+    source TEXT,
+    UNIQUE (instrument_id, ts, source)
 );
+
+COMMENT ON TABLE ticks IS 'Stores tick-level trades and quotes';
+COMMENT ON COLUMN ticks.ts IS 'Timestamp of the tick event';
+COMMENT ON COLUMN ticks.source IS 'Data source, e.g., Tiingo, Yahoo, Polygon';
 
 -- Index for efficient time-series queries
 CREATE INDEX idx_ticks_instrument_ts ON ticks (instrument_id, ts);
 
-COMMENT ON TABLE ticks IS 'Stores tick-level trades and quotes';
-COMMENT ON COLUMN ticks.ts IS 'Timestamp of the tick event';
-
--- 4. Create OHLCV table
+-- 3. OHLCV table
 CREATE TABLE ohlcv (
     id BIGSERIAL PRIMARY KEY,
     instrument_id INT NOT NULL REFERENCES instruments(id) ON DELETE CASCADE,
@@ -95,15 +98,17 @@ CREATE TABLE ohlcv (
     adj_close NUMERIC(18,8),
     adj_volume NUMERIC(18,8),
     div_cash NUMERIC(18,8),
-    split_factor NUMERIC(18,8)
+    split_factor NUMERIC(18,8),
+    source TEXT,
+    UNIQUE (instrument_id, interval, ts, source)
 );
 
--- Index for OHLCV queries
-CREATE INDEX idx_ohlcv_instrument_interval_ts ON ohlcv (instrument_id, interval, ts);
+COMMENT ON TABLE ohlcv IS 'Stores OHLCV bars for instruments';
+COMMENT ON COLUMN ohlcv.ts IS 'Timestamp of the OHLCV bar';
+COMMENT ON COLUMN ohlcv.source IS 'Data source, e.g., Tiingo, Yahoo, Polygon';
 
-COMMENT ON TABLE ohlcv IS 'Stores aggregated OHLCV data with adjustable intervals';
-COMMENT ON COLUMN ohlcv.interval IS 'Resolution of the candle (1m, 5m, 1h, 1d)';
-COMMENT ON COLUMN ohlcv.adj_close IS 'Close price adjusted for splits/dividends';
+-- Index for efficient time-series queries
+CREATE INDEX idx_ohlcv_instrument_interval_ts ON ohlcv (instrument_id, interval, ts);
 
 -- Done! You now have a flexible, well-documented schema.
 ```
