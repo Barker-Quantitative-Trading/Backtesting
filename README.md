@@ -6,12 +6,10 @@ machine so you can get started
 
 Step 1
 --
-If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow the method availble from extending details.
+If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow the method availble from extending Git Setup.
 
 <details>
-  <summary>Step 1 – Git Setup</summary>
-
-  If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow the method availble from extending details.
+  <summary>Git Setup</summary>
   
   1. Enter command:
      - `ssh-keygen -t ed25519 -C "your_email@example.com"`
