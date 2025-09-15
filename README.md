@@ -7,19 +7,24 @@ machine so you can get started
 Step 1
 --
 If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow this method.
-> - Enter command: 
-        - ssh-keygen -t ed25519 -C "your_email@example.com" (replace your_email@example.com with your email)
-> - Press enter for all prompts
-> - Enter command:
-        - pbcopy < ~/.ssh/id_ed25519.pub (you should be able to paste the key now)
-> - Go to [this](link https://github.com/settings/keys) webpage to setup an ssh key
-        - click "New SSH Key"
-        - Add whatever title you would like
-        - Paste the key that was saved into the Key box and then click "Add SSH Key"
-> - Now verify your connection by entering the command:
-        - ssh -T git@github.com
-        - You may be asked if you are sure you want to continue to connect. Follow the prompts to continue.
-        - This should print "Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access."
+## Setup Guide
+
+<details>
+  1. Enter command:
+     - `ssh-keygen -t ed25519 -C "your_email@example.com"`
+     - Press enter for all prompts
+
+  2. Copy your public key:
+     - `pbcopy < ~/.ssh/id_ed25519.pub`
+
+  3. Add SSH key to GitHub:
+     - Go to [this page](https://github.com/settings/keys)
+     - Click **"New SSH Key"**
+     - Paste the copied key and save
+
+  4. Verify your connection:
+     - `ssh -T git@github.com`
+</details>
 
 Step 2
 --
