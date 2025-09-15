@@ -6,7 +6,7 @@ machine so you can get started
 
 Step 1
 --
-If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow the method availble from extending Git Setup.
+If you do not have git setup so that you can interact with github please set it up with the instructions below. To view the instructions extend Git Setup. (All commands are done in terminal)
 
 <details>
   <summary>Git Setup</summary>
