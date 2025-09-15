@@ -7,7 +7,7 @@ machine so you can get started
 Step 1
 --
 If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow this method.
-<details>
+<SetUpGit>
   1. Enter command:
      - `ssh-keygen -t ed25519 -C "your_email@example.com"`
      - Press enter for all prompts
@@ -22,7 +22,7 @@ If you do not have git setup so that you can interact with github please set it 
 
   4. Verify your connection:
      - `ssh -T git@github.com`
-</details>
+</SetUpGit>
 
 Step 2
 --
