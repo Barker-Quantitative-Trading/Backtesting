@@ -31,9 +31,16 @@ Step 2
 --
 Clone Repostiory onto your machine.
 If you do not know how to clone yet please follow the command below or use the link to learn how to clone.
-> - Command:
-        - git clone git@github.com:Barker-Quantitative-Trading/Backend.git
-> - [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+<details>
+  <summary>Cloning</summary>
+  
+  Enter command:
+     - `git clone git@github.com:Barker-Quantitative-Trading/Backend.git`
+     
+  [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+</details>
 
 Step 3
 --
