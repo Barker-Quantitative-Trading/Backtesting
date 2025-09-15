@@ -25,11 +25,33 @@ def execute_query(query, params=None):
     Execute a SELECT query and return results.
     Useful for reading data.
     """
-    pass
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(query, params)
+            results = cur.fetchall()
+        return results
+    except Exception as e:
+        print("Error executing query:", e)
+        return []
+    finally:
+        conn.close()
 
 def execute_update(query, params=None):
     """
     Execute INSERT/UPDATE/DELETE queries and commit changes.
     Useful for writing to the database.
     """
-    pass
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(query, params)
+            affected = cur.rowcount
+        conn.commit()
+        return affected
+    except Exception as e:
+        print("Error executing update:", e)
+        conn.rollback()
+        return 0
+    finally:
+        conn.close()
