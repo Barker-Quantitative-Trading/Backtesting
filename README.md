@@ -4,6 +4,10 @@ If you have access to this repo you are a very lucky person.**
 If you are wanting to help development please read through this file to know what to do to prep your 
 machine so you can get started
 
+Step 1
+--
+If you do not have git setup so that you can interact with github please set it up with the commands below in terminal. It is recommended to follow the method availble from extending details.
+
 <details>
   <summary>Step 1 – Git Setup</summary>
 
