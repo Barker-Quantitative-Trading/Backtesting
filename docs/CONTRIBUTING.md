@@ -6,18 +6,20 @@ Please follow these steps to keep our workflow clean and consistent.
 ---
 
 1. **Clone the Repository** 
-    Clone the repository if you have not already.
+    - Clone the repository if you have not already.
 
 2. **Create a new branch** 
-    Always create a new branch for your work (never work directly on main)
+    - Always create a new branch for your work (never work directly on main)
 
     `git checkout -b feature/short-description`
 
 3. **Make changes** 
-    Write clean, well-documented code. If you are adding functionality, include tests. Run tests before committing. The command for running tests is pytest or if clicking the run button in a test file.
-    All test files have to start with test. Example: "test_feature.py"
+    - Write clean, well-documented code. 
+    - If you are adding functionality, include tests. 
+    - Run tests before committing. The command for running tests is `pytest` or clicking the run button in a test file.
+    - All test files have to start with test.  Example: "test_feature.py"
 
-4. **Commit and push** 
+4. **Commit and push** - 
     Make small, focused commits with clear messages. Example:
     - git add .
     - git commit -m "Add feature: backtest strategy with momentum rules"
@@ -44,5 +46,5 @@ Please follow these steps to keep our workflow clean and consistent.
     - Review and fix all comments.
     - Once approved by a reviewer merge into main.
 
-**Note** 
+**Note** - 
     Be respectful and collaborative. Reviews and discussions are meant to improve the project, not criticize contributors.
