@@ -58,6 +58,10 @@ Use the command below to install all necessary libraries
 
 Step 6
 --
+Learn How to contribute by reading this document [Contributing Guidelines](./docs/CONTRIBUTING.md)
+
+Step 7
+--
 Happy Coding! :rocket: :rocket:
 
 
