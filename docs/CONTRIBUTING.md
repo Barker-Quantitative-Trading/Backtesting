@@ -26,7 +26,7 @@ Please follow these steps to keep our workflow clean and consistent.
     - git commit -m "Add feature: backtest strategy with momentum rules"
     - git push origin feature/short-description
     - It may say "To push the current branch and set the remote as upstream, use 
-    git push --set-upstream origin start-of-algo"
+    git push --set-upstream origin feature_branch_name"
         - You need to do this when you first push.
 
 5. **Submit a pull request(PR)** 
