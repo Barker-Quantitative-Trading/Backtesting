@@ -46,6 +46,8 @@ Please follow these steps to keep our workflow clean and consistent.
 
 6. **Merge into main** 
     - Review and fix all comments.
+    - Ensure your branch is completely up to date with main to avoid any conflicts. To do this use command:
+        - `git merge origin/main`
     - Once approved by a reviewer merge into main.
 
 **Note** - 
