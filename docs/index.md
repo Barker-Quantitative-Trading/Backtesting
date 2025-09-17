@@ -8,8 +8,8 @@ Welcome to the documentation for this project. Use this index to navigate throug
 
 * [Getting Started with Docker](getting_started_docker.md)
 * [Getting Started with PSQL](getting_started_PSQL.md)
-* [Getting Started with Linter](getting_started_linter.txt)
-* [Getting Started with Testing](getting_started_testing.txt)
+* [Getting Started with Linter](getting_started_linter.md)
+* [Getting Started with Testing](getting_started_testing.md)
 
 ---
 
