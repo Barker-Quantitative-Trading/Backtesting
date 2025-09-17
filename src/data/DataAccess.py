@@ -8,51 +8,38 @@ So if the data does not exist create it sort of thing.
 """
 import psycopg2
 
-class Interface:
+class DataAccess:
 
-    """ Instruments """
+    """ Assets """
     def __init__():
         """Initialize connection (to be implemented)."""
 
-    def list_instruments():
+    def list_assets():
         """Return all instruments, optionally filtered by exchange or type."""
 
-    def get_instrument():
+    def get_assets():
         """Fetch metadata for a single instrument by symbol."""
 
-    def search_instruments():
+    def search_assets():
         """Search instruments by partial symbol or name."""
 
 
-    """ OHLCV """
-    def get_ohlcv():
-        """Fetch OHLCV data for a symbol within an optional date range."""
+    """ candle """
+    def get_candle():
+        """Fetch candle data for a symbol within an optional date range."""
+        """If no date range given it will return latest current candle data"""
 
-    def get_latest_price():
-        """Return the most recent close price for a symbol."""
-
-    def get_bulk_ohlcv():
-        """Fetch OHLCV data for multiple symbols at once."""
+    def get_bulk_candle():
+        """Fetch candle data for multiple symbols at once."""
         """It is difficult to know if this one will really be needed"""
 
     def get_daily_returns():
-        """Calculate daily returns from OHLCV data for a symbol."""
+        """Calculate daily returns from candle data for a symbol."""
 
     
     """ Utilities """
     def get_schema():
         """Return column names and types for a given table."""
-        
 
-    """ Trades """
 
-    """
-    These are things for future implementation if 
-    we are able to get this information somhow
-    """
-    def get_trades():
-        """Fetch raw trade-level data for a symbol."""
-
-    def get_order_book():
-        """"Fetch snapshot of order book at given depth."""
-
+   
