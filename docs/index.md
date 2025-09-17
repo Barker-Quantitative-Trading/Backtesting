@@ -20,12 +20,6 @@ Welcome to the documentation for this project. Use this index to navigate throug
 
 ---
 
-## 🧪 Examples
-
-* [Example Testing](../Example_Testing)
-
----
-
 ## 🤝 Contributing
 
 See the [Contributing Guide](CONTRIBUTING.md) for details on setting up your environment, coding standards, and how to submit pull requests.
