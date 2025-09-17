@@ -58,7 +58,7 @@ Use the command below to install all necessary libraries
 
 Step 6
 --
-Learn How to contribute by reading this document [Contributing Guidelines](./docs/CONTRIBUTING.md)
+Learn How to contribute by reading this document [Contributing Guidelines](./docs/CONTRIBUTING.md) or going to this link https://barker-quantitative-trading.github.io/Backend/ and reading the contribution section.
 
 Step 7
 --
