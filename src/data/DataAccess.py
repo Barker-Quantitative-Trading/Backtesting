@@ -15,13 +15,13 @@ class DataAccess:
         """Initialize connection (to be implemented)."""
 
     def list_assets():
-        """Return all instruments, optionally filtered by exchange or type."""
+        """Return all assets, optionally filtered by exchange or type."""
 
     def get_assets():
-        """Fetch metadata for a single instrument by symbol."""
+        """Fetch metadata for a single asset by symbol."""
 
     def search_assets():
-        """Search instruments by partial symbol or name."""
+        """Search assets by partial symbol or name."""
 
 
     """ candle """

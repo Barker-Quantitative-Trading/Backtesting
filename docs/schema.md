@@ -4,19 +4,19 @@ This the current plan for they database schema to allow backtesting and for an o
 
 ---
 
-## 1. Instruments Table
+## 1. assets Table
 
-**Purpose:** Store metadata for financial instruments (stocks, crypto, forex, etc.).
+**Purpose:** Store metadata for financial assets (stocks, crypto, forex, etc.).
 
 | Column     | Type       | Description                                           |
 |------------|----------- |-------------------------------------------------------|
 | id         | SERIAL PK  | Unique identifier                                     |
-| symbol     | TEXT       | Instrument symbol (e.g., AAPL, BTC-USD)               |
-| name       | TEXT       | Full name of the instrument                           |
-| type       | TEXT       | Instrument type (stock, crypto, forex, etc.)          |
+| symbol     | TEXT       | asset symbol (e.g., AAPL, BTC-USD)               |
+| name       | TEXT       | Full name of the asset                           |
+| type       | TEXT       | asset type (stock, crypto, forex, etc.)          |
 | exchange   | TEXT       | Exchange code                                         |
 | currency   | TEXT       | Denomination currency                                 |
-| metadata   | JSONB      | Flexible storage for additional instrument info       |
+| metadata   | JSONB      | Flexible storage for additional asset info       |
 
 **Notes:**  
 - `symbol` is unique.  
@@ -31,7 +31,7 @@ This the current plan for they database schema to allow backtesting and for an o
 | Column        | Type         | Description                                       |
 |---------------|------------- |---------------------------------------------------|
 | id            | BIGSERIAL PK | Unique tick identifier                            |
-| instrument_id | INT FK       | References `instruments.id`                       |
+| asset_id | INT FK       | References `assets.id`                       |
 | ts            | TIMESTAMPTZ  | Timestamp of the tick                             |
 | price         | NUMERIC      | Trade price                                       |
 | volume        | NUMERIC      | Trade volume                                      |
@@ -41,18 +41,18 @@ This the current plan for they database schema to allow backtesting and for an o
 | ask_size      | NUMERIC      | Size available at ask                             |
 
 **Indexes:**  
-- `(instrument_id, ts)` for efficient time-series queries  
+- `(asset_id, ts)` for efficient time-series queries  
 
 ---
 
-## 3. OHLCV Table
+## 3. candle Table
 
 **Purpose:** Store aggregated price data (candles) at different intervals.
 
 | Column       | Type         | Description                                       |
 |------------- |--------------|---------------------------------------------------|
 | id           | BIGSERIAL PK | Unique row identifier                             |
-| instrument_id| INT FK       | References `instruments.id`                       |
+| asset_id| INT FK       | References `assets.id`                       |
 | interval     | TEXT         | Resolution of the candle (1m, 5m, 1h, 1d, etc.)   |
 | ts           | TIMESTAMPTZ  | Start time of the interval                        |
 | open         | NUMERIC      | Opening price                                     |
@@ -69,7 +69,7 @@ This the current plan for they database schema to allow backtesting and for an o
 | split_factor | NUMERIC      | Stock split factor                                |
 
 **Indexes:**  
-- `(instrument_id, interval, ts)` for fast lookups  
+- `(asset_id, interval, ts)` for fast lookups  
 
 **Notes:**  
 - Adjusted columns are optional for intraday feeds without corporate actions.  
