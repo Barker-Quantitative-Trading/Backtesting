@@ -2,11 +2,6 @@ name: Build Docs PDF w/ LateX
 
 on:
   workflow_dispatch:   # allows manual runs
-  push:
-    branches:
-      - main
-    paths:
-      - "docs/**"
 
 jobs:
   build:
