@@ -3,7 +3,7 @@
 Purpose:
 --------
 This module handles all interactions with the Tiingo API. It is responsible
-for fetching raw instrument metadata and historical OHLCV data, which
+for fetching raw asset metadata and historical candle data, which
 can later be validated and inserted into the database.
 """
 import requests
@@ -18,7 +18,7 @@ tokenHeader = os.getenv("TIINGO_TOKEN_HEADER")
 Takes symbol (str)
 returns a dictionary of all the info tiingo has about that symbol
 """
-def fetch_instrument(symbol: str) -> dict:
+def fetch_asset(symbol: str) -> dict:
 
     endpoint = f"/tiingo/daily/{symbol}"
     url = f"{base_url}{endpoint}"
@@ -31,14 +31,14 @@ def fetch_instrument(symbol: str) -> dict:
     response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
-        print(f"Error fetching instrument {symbol}: {response.status_code}")
+        print(f"Error fetching asset {symbol}: {response.status_code}")
         print("Response text:", response.text[:200])
         return {}
 
     try:
         return response.json()
     except ValueError:
-        print("Failed to decode JSON response for instrument:", symbol)
+        print("Failed to decode JSON response for asset:", symbol)
         return {}
 
 
@@ -50,7 +50,7 @@ If only passed two parameters of symbol and start date end date will be set to n
     the will give you upto current date
 Function returns data in json format
 """
-def fetch_ohlcv(symbol: str, start_date: str, end_date: str = None) -> list:
+def fetch_candle(symbol: str, start_date: str, end_date: str = None) -> list:
 
     if(end_date):
         endpoint = f"/tiingo/daily/{symbol}/prices?startDate={start_date}&endDate={end_date}&"
@@ -65,11 +65,11 @@ def fetch_ohlcv(symbol: str, start_date: str, end_date: str = None) -> list:
     }
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
-        print(f"Error fetching instrument {symbol}: {response.status_code}")
+        print(f"Error fetching asset {symbol}: {response.status_code}")
         print("Response text:", response.text[:200])
         return {} 
     try:
         return(response.json())
     except ValueError:
-        print("Failed to decode JSON response for instrument:", symbol)
+        print("Failed to decode JSON response for asset:", symbol)
         return{}

@@ -44,8 +44,8 @@ CREATE DATABASE market_data;
 **Connect to the database**
 \c market_data;
 
--- 1. Create Instruments table
-CREATE TABLE instruments (
+-- 1. Create assets table
+CREATE TABLE assets (
     id SERIAL PRIMARY KEY,
     symbol TEXT NOT NULL UNIQUE,
     name TEXT,
@@ -55,14 +55,14 @@ CREATE TABLE instruments (
     metadata JSONB
 );
 
-COMMENT ON TABLE instruments IS 'Stores metadata for financial instruments';
-COMMENT ON COLUMN instruments.symbol IS 'Instrument symbol (e.g., AAPL, BTC-USD)';
-COMMENT ON COLUMN instruments.metadata IS 'Flexible JSONB for additional info like tick size, lot size';
+COMMENT ON TABLE assets IS 'Stores metadata for financial assets';
+COMMENT ON COLUMN assets.symbol IS 'asset symbol (e.g., AAPL, BTC-USD)';
+COMMENT ON COLUMN assets.metadata IS 'Flexible JSONB for additional info like tick size, lot size';
 
 -- 2. Ticks table
 CREATE TABLE ticks (
     id BIGSERIAL PRIMARY KEY,
-    instrument_id INT NOT NULL REFERENCES instruments(id) ON DELETE CASCADE,
+    asset_id INT NOT NULL REFERENCES assets(id) ON DELETE CASCADE,
     ts TIMESTAMPTZ NOT NULL,
     price NUMERIC(18,8),
     volume NUMERIC(18,8),
@@ -71,7 +71,7 @@ CREATE TABLE ticks (
     bid_size NUMERIC(18,8),
     ask_size NUMERIC(18,8),
     source TEXT,
-    UNIQUE (instrument_id, ts, source)
+    UNIQUE (asset_id, ts, source)
 );
 
 COMMENT ON TABLE ticks IS 'Stores tick-level trades and quotes';
@@ -79,12 +79,12 @@ COMMENT ON COLUMN ticks.ts IS 'Timestamp of the tick event';
 COMMENT ON COLUMN ticks.source IS 'Data source, e.g., Tiingo, Yahoo, Polygon';
 
 -- Index for efficient time-series queries
-CREATE INDEX idx_ticks_instrument_ts ON ticks (instrument_id, ts);
+CREATE INDEX idx_ticks_asset_ts ON ticks (asset_id, ts);
 
--- 3. OHLCV table
-CREATE TABLE ohlcv (
+-- 3. candle table
+CREATE TABLE candle (
     id BIGSERIAL PRIMARY KEY,
-    instrument_id INT NOT NULL REFERENCES instruments(id) ON DELETE CASCADE,
+    asset_id INT NOT NULL REFERENCES assets(id) ON DELETE CASCADE,
     interval TEXT NOT NULL DEFAULT '1d',
     ts TIMESTAMPTZ NOT NULL,
     open NUMERIC(18,8),
@@ -100,15 +100,15 @@ CREATE TABLE ohlcv (
     div_cash NUMERIC(18,8),
     split_factor NUMERIC(18,8),
     source TEXT,
-    UNIQUE (instrument_id, interval, ts, source)
+    UNIQUE (asset_id, interval, ts, source)
 );
 
-COMMENT ON TABLE ohlcv IS 'Stores OHLCV bars for instruments';
-COMMENT ON COLUMN ohlcv.ts IS 'Timestamp of the OHLCV bar';
-COMMENT ON COLUMN ohlcv.source IS 'Data source, e.g., Tiingo, Yahoo, Polygon';
+COMMENT ON TABLE candle IS 'Stores candle bars for assets';
+COMMENT ON COLUMN candle.ts IS 'Timestamp of the candle bar';
+COMMENT ON COLUMN candle.source IS 'Data source, e.g., Tiingo, Yahoo, Polygon';
 
 -- Index for efficient time-series queries
-CREATE INDEX idx_ohlcv_instrument_interval_ts ON ohlcv (instrument_id, interval, ts);
+CREATE INDEX idx_candle_asset_interval_ts ON candle (asset_id, interval, ts);
 
 -- Done! You now have a flexible, well-documented schema.
 ```

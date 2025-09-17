@@ -27,8 +27,8 @@ def validate_timestamp(ts):
     """
     pass
 
-def validate_ohlcv(open_price, high, low, close, volume):
+def validate_candle(open_price, high, low, close, volume):
     """
-    Validate OHLCV values (no negatives, logical consistency).
+    Validate candle values (no negatives, logical consistency).
     """
     pass
