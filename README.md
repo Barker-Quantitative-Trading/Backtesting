@@ -1,37 +1,83 @@
-**Hello Welcome to the Barker Quantitative Trading Club.
-If you have access to this repo you are a very lucky person.**
+# Barker Quantitative Trading Club
 
-If you are wanting to help development please read through this file to know what to do to prep your 
-machine so you can get started
+**Welcome!**
+If you have access to this repo, you’re one of the lucky few 🚀.
+Follow these steps to prep your machine and start contributing.
 
-Step 1
---
-If you do not have git setup so that you can interact with github please set it up with the link below. It is recommended to follow the http method.
-> [Set up git](https://docs.github.com/en/get-started/git-basics/set-up-git)
+---
 
-Step 2
---
-Clone Repostiory onto your machine.
-If you do not know how to clone yet please follow the link below.
-> [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+## Quick Setup (TL;DR)
 
-Step 3
---
-Create a python virtual enviroment
-> python3 -m venv env <sub> (env is the name of the environment. You can change this to .env, .venv, or venv) </sub>
+1. Clone the repo (see below)
+2. Create a Python virtual environment
+3. Run the setup script: <br>
+   #### Windows
+   ```bash
+   bash setup_windows.sh
+   ```
 
-Step 4
---
-Start the environment
-> source env/bin/activate <sub> (If you changed the name of the enviornment in the previous step reflect it in this command.) </sub>
-
-Step 5
---
-Use the command below to install all necessary libraries
-> pip install -r requirements.txt
-
-Step 6
---
-Happy Coding! :rocket: :rocket:
+   #### Linux
+   ```bash
+   bash setup_ubuntu.sh
+   ```
+4. Happy coding 🎉
 
 
+## Detailed Setup
+
+### Step 1 — Git Setup
+
+If you don’t already have Git configured to interact with GitHub, follow the instructions here:
+👉 [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
+*(Recommended: use the HTTPS method.)*
+
+### Step 2 — Clone the Repository
+
+Clone this repository onto your machine.
+👉 [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+### Step 3 — Create a Python Virtual Environment
+
+Run:
+
+```bash
+python3 -m venv .venv
+```
+
+*(You can name the environment `env`, `.env`, `venv`, etc.)*
+
+### Step 4 — Activate the Environment
+
+#### Run:
+
+Windows
+```bash
+source .venv/Scripts/activate
+```
+
+Linux
+```bash
+source .venv/bin/activate
+```
+
+*(Adjust the name if you used something other than `.venv`.)*
+
+### Step 5 — Install Dependencies
+
+Run:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 6 — Run the docker containers
+
+Run:
+```bash
+cd docker
+docker compose up -d
+```
+
+### Step 7 — Start Coding!
+
+You’re all set. Happy coding! 🚀🚀
