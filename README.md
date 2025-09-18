@@ -42,7 +42,7 @@ If you don’t already have Git configured to interact with GitHub, follow the i
      - `git config --global user.name "Your Name"`  
      - `git config --global user.email "your_email@example.com"`  
 
-  3. When prompted, log in with your GitHub username and password or use a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) instead of a password.  
+  3. If prompted, log in with your GitHub username and password or use a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) instead of a password.  
 </details>
 
 
@@ -74,10 +74,11 @@ If you do not know how to clone yet please follow the command below or use the l
 <details>
   <summary>Cloning</summary>
   
-  > Clone by HTTPS:  
+  > Clone by HTTPS: <br> 
      `git clone https://github.com/Barker-Quantitative-Trading/Backend.git`  
 
-  > Clone by ssh: `git clone git@github.com:Barker-Quantitative-Trading/Backend.git`
+  > Clone by ssh: <br>
+   `git clone git@github.com:Barker-Quantitative-Trading/Backend.git`
   
   [How to clone repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
@@ -130,5 +131,4 @@ docker compose up -d
 You’re all set. Read the contributing guide below.
 
 ---
-
 Learn How to contribute by reading this document [Contributing Guidelines](./docs/CONTRIBUTING.md) or going to this link https://barker-quantitative-trading.github.io/Backend/ and reading the contribution section.
