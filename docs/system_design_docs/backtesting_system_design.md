@@ -71,29 +71,44 @@ Once the backtest has concluded the execution layer will send all the informatio
 
 Discuss the rationale for selecting the architecture described in 3.1 including trade offs and issues considered. This is a good spot to say why certain things fell in your scope and not someone else. Adding things such as why you chose a specific pattern or style is also good.
 
+This structure should allow a modular and decoupled design. 
+
+The trading strategy layer that defines buy and sell signals should be able to easily be changed out and not depend on anything else. Its sole purpose is to define how buy and sell signals are determined. A good structure might be making an interface/abstract base class so that a structure is defined but then depending on the strategy, methods can be redefined.
+
+The execution layer should solely handle processing trades. Taking the rules defined and pulling data and then using some kind of looping design to "place" trades. Everything should be modular so that things such as placing trades, tracking trades, and tracking positions can be swtiched out.
+
+The data layer should pull data from a source like tiingo and store it in a database. The data layer will also be responsible for providing an interface for other layers to request data. This layer should be able to easily expand and store data from different time periods. An example may be that initially you may store data on a daily basis but later should be able to easily transition and store hour or minute data.
+
+The reporting layer will be the most tied to the front end and again should be modular. More ratios should be easy to add and information processing. It should be ready to pull from the execution layer and process in a meaningfull way. A class structure could be used with each method calculating ratios.
+
+This structure is to encourage easy changes. When designing and planning it should be considered that this will be the base of the rest of the backtest and possibly for the rest of the algo. This is not a one time project so be ready for the scope of the project to change. I believe the current structure will force modularity and the scope wont be too large for each layer.
+
 ## 4 Tools & Tech Stack
 
 ### 4.1 Tools
 
-Describe all tools that are needed and used in this part of the project. May include references to download anything not in the initial startup.
+- pytest
+
+- pylint
 
 ### 4.2 Tech Stack
 
-This can likely be the same as other SDD's but may differ if you are working on something specific and need another langauge or piece of architecture.
+Bakend: Python
+
+Database: PostgreSQL
+
+Data Source: Tiingo
 
 ## 5 Requirements Matrix
+Requirement 1: A database that can pull and store market information that is always expanding and varying. Should be able to work on multiple time frames.
 
-Describe all requirements that this document meets.
-Example:
+Requirement 2: An algorithm that can execute trades like a real brokerage but speed up time so that you can backtest a strategy over 20 years within a few minutes.
 
-Requirement 1: A system that can pull data from a database.
+Requirement 3: A way of defining trading rules that can always change and support multiple strategies. Should be able to interact with other layers and suport the addition of complex calculations for different indicators.
 
-Requirement2: A system that can transform data into a format usable by -other- system.
+Requirment 4: A way to take information and transform it into usable information. Should calculate ratios and create meaningfull graphs and tables of equity and drawdown.
 
 ## 6 Appendices
-
-Optional. Appendices may be included, either directly or by reference, to provide supporting details that could aid in the understanding of the Software Design Document.
-
 Based on [Software Design Document (SDD) Template ](https://devlegalsimpli.blob.core.windows.net/pdfseoforms/pdf-20180219t134432z-001/pdf/software-design-document-2.pdf)
 
 And https://gist.github.com/shenhab/15dbb9eb5422c07f497bf17de299b28d
