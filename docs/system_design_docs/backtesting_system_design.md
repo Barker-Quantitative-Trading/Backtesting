@@ -13,11 +13,9 @@ Date Last Updated: 09-21-2025
 - [1 Introduction](#1-introduction)
 - [2 System Overview](#2-system-overview)
 - [3 System Architecture](#3-system-architecture)
-- [4 Data Design](#4-data-design)
-- [5 Component Design](#5-component-design)
-- [6 Human Interface Design](#6-human-interface-design)
-- [7 Requirements Matrix](#7-requirements-matrix)
-- [8 Appendices](#8-appendices)
+- [4 Tools and Tech Stack](#4-tools-and-tech-stack)
+- [5 Requirements Matrix](#5-requirements-matrix)
+- [6 Appendices](#6-appendices)
 
 ## 1 Introduction
 
@@ -83,7 +81,7 @@ The reporting layer will be the most tied to the front end and again should be m
 
 This structure is to encourage easy changes. When designing and planning it should be considered that this will be the base of the rest of the backtest and possibly for the rest of the algo. This is not a one time project so be ready for the scope of the project to change. I believe the current structure will force modularity and the scope wont be too large for each layer.
 
-## 4 Tools & Tech Stack
+## 4 Tools and Tech Stack
 
 ### 4.1 Tools
 
