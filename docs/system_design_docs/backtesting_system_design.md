@@ -67,8 +67,6 @@ Once the backtest has concluded the execution layer will send all the informatio
 
 ### 3.2 Design Rationale
 
-Discuss the rationale for selecting the architecture described in 3.1 including trade offs and issues considered. This is a good spot to say why certain things fell in your scope and not someone else. Adding things such as why you chose a specific pattern or style is also good.
-
 This structure should allow a modular and decoupled design. 
 
 The trading strategy layer that defines buy and sell signals should be able to easily be changed out and not depend on anything else. Its sole purpose is to define how buy and sell signals are determined. A good structure might be making an interface/abstract base class so that a structure is defined but then depending on the strategy, methods can be redefined.
