@@ -34,7 +34,7 @@ This document will first go over the general system and what it can be used for 
 
 ### 1.4 Reference Material
 
-Optional. List any documents that were used or would help better explain the choices made in this document.
+
 
 ### 1.5 Definitions and Acronyms
 
