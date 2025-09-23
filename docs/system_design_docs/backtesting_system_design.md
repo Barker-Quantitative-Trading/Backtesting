@@ -57,7 +57,7 @@ After requesting and receiving information from the data layer the execution lay
     - If a trade was a winner it will add to its wins and if it was a loser it will add to its lossees.
       - This will mean that the execution layer will somehow have to keep track of intitial entrances.
 
-Once the backtest has concluded the execution layer will send all the information to the reporting layer to be displayed. The execution layer will have to perform calculations on the balance to determine many common ratios that reflect performance such as the sharpe and sortino ratio and max drawdown. Lastly the execution layer will create graphs to show things such as balance over the time period.
+Once the backtest has concluded the execution layer will send all the information to the reporting layer to be displayed. The reporting layer will have to perform calculations on the balance to determine many common ratios that reflect performance such as the sharpe and sortino ratio and max drawdown. Lastly the reporting layer will create graphs to show things such as balance over the time period.
 
 ## 3 System Architecture
 
