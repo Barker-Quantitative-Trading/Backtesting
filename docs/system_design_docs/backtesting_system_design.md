@@ -89,7 +89,7 @@ This structure is to encourage easy changes. When designing and planning it shou
 
 ### 4.2 Tech Stack
 
-Bakend: Python
+Backend: Python
 
 Database: PostgreSQL
 
