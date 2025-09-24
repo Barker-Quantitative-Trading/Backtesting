@@ -6,26 +6,26 @@ Welcome to the documentation for this project. Use this index to navigate throug
 
 ## 📚 Getting Started
 
-* [Getting Started with Docker](getting_started_docker.md)
-* [Getting Started with PSQL](getting_started_PSQL.md)
-* [Getting Started with Linter](getting_started_linter.md)
-* [Getting Started with Testing](getting_started_testing.md)
+* [Getting Started with Docker](Data_Layer/getting_started_docker.md)
+* [Getting Started with PSQL](Data_Layer/getting_started_PSQL.md)
+* [Getting Started with Linter](Testing_And_Linting/getting_started_linter.md)
+* [Getting Started with Testing](Testing_And_Linting/getting_started_testing.md)
 
 ---
 
 ## 🏗️ System Design
 
-* [Backtesting System Design](backtesting_system_design.md)
-* [Database Schema](schema.md)
+* [Backtesting System Design](Backtesting_System/backtesting_system_design.md)
+* [Database Schema](Data_Layer/schema.md)
 
 ---
 
 ## 🤝 Contributing
 
-See the [Contributing Guide](CONTRIBUTING.md) for details on setting up your environment, coding standards, and how to submit pull requests.
+See the [Contributing Guide](Contributing/CONTRIBUTING.md) for details on setting up your environment, coding standards, and how to submit pull requests.
 
 ---
 
 ## ℹ️ Notes
 
-This documentation is organized under the `docs/` folder. For source code, refer to the [`src/`](../src) directory.
+This documentation is organized under the `docs/` folder. For source code, refer to the [`src/`](../src) directory under each layer folder in the Layers folder.

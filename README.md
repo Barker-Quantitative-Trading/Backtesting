@@ -131,4 +131,4 @@ docker compose up -d
 You’re all set. Read the contributing guide below.
 
 ---
-Learn How to contribute by reading this document [Contributing Guidelines](./docs/CONTRIBUTING.md) or going to this link https://barker-quantitative-trading.github.io/Backend/ and reading the contribution section.
+Learn How to contribute by reading this document [Contributing Guidelines](./docs/Contributing/CONTRIBUTING.md) or going to this link https://barker-quantitative-trading.github.io/Backend/ and reading the contribution section.
