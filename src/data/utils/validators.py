@@ -16,9 +16,10 @@ These should return bool values if correct or not.
 """
 
 def validate_symbol(symbol):
-    """
-    Ensure the symbol is valid (string, uppercase).
-    """
+    if type(symbol) != str: #checks the type
+        return False
+    else:
+        return symbol.isupper()
     pass
 
 def validate_timestamp(ts):
@@ -28,7 +29,12 @@ def validate_timestamp(ts):
     pass
 
 def validate_candle(open_price, high, low, close, volume):
-    """
-    Validate candle values (no negatives, logical consistency).
-    """
+    if open_price or high or low or volume or close < 0: #checks if any of the variables are negative
+        return False
+    elif low > high: #confirms that low is lower than high
+        return False
+    elif close < low or close > high or open_price > high or open_price < low:
+        return False
+    else:
+        return True
     pass
