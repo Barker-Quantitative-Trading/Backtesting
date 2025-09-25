@@ -1,12 +1,11 @@
-## Idaho Quantitative Traders Club
-# Backtesting System
-## Software Design Document
-
+# Idaho Quantitative Traders Club
+### Software Design Document - Backtesting System 
+\
 Name: Ibrahim Mansour
 
 Date Created: 09-21-2025
 
-Date Last Updated: 09-21-2025
+Date Last Updated: 09-24-2025
 
 ## Summary
 
