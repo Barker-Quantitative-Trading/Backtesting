@@ -37,7 +37,7 @@ def main():
     else:
         print("Incorrect")
 
-    if validate_timestamp("2019-01-02T00:00:00.000Z") == True:
+    if validate_timestamp("2019-01-02T00:00:00.000+04:00") == True:
         print("Validated")
     else:
         print("Incorrect")

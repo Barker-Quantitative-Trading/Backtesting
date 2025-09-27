@@ -29,7 +29,7 @@ def validate_timestamp(ts):
     if type(ts)!=str:
         return False
     try:
-        dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S.%fZ")
+        dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S.%f%z")
     except ValueError as e:
         print(f"Invalid timestamp: {ts} -> {e}")
         return False
