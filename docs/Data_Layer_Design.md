@@ -16,7 +16,6 @@
 - [4 Data Design](#4-data-design)
 - [5 Component Design](#5-component-design)
 - [6 Requirements Matrix](#6-requirements-matrix)
-- [7 Appendices](#7-appendices)
 
 ---
 
