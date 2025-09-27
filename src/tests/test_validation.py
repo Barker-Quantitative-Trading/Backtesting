@@ -36,7 +36,31 @@ def main():
         print("Validated")
     else:
         print("Incorrect")
+
+    if validate_timestamp("2019-01-02T00:00:00.000Z") == True:
+        print("Validated")
+    else:
+        print("Incorrect")
+    if validate_timestamp("1880-01-02T00:00:00.000Z") == False:
+        print("Validated")
+    else:
+        print("Incorrect")
+    if validate_timestamp("2030-01-02T00:00:00.000Z") == False:
+        print("Validated")
+    else:
+        print("Incorrect")
+    if validate_timestamp("2019-13-15T00:00:00.000Z") == False:
+        print("Validated")
+    else:
+        print("Incorrect")
+    if validate_timestamp("2019-02-31T00:00:00.000Z") == False:
+        print("Validated")
+    else:
+        print("Incorrect")
+    
     print("End of test")
+
+    
 
 if __name__ == "__main__":
     main()

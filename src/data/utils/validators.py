@@ -14,6 +14,7 @@ raw API responses and the database layer.
 Helper functions to validate data before inserting into the DB.
 These should return bool values if correct or not.
 """
+from datetime import datetime
 
 def validate_symbol(symbol):
     if type(symbol) != str: #checks the type
@@ -23,9 +24,21 @@ def validate_symbol(symbol):
     pass
 
 def validate_timestamp(ts):
-    """
-    Ensure the timestamp is valid (datetime or string format).
-    """
+    #EXAMPLE: 2019-01-02T00:00:00.000Z
+    #EXAMPLE 2: 2023-11-03T14:20:35+04:00
+    if type(ts)!=str:
+        return False
+    try:
+        dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S.%fZ")
+    except ValueError as e:
+        print(f"Invalid timestamp: {ts} -> {e}")
+        return False
+    if dt.year<1900: #make sure data is from 1900-present 
+        return False
+    elif dt.year>datetime.now().year:
+        return False
+    else:
+        return True
     pass
 
 def validate_candle(open_price, high, low, close, volume):
