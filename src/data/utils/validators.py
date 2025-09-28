@@ -16,9 +16,10 @@ These should return bool values if correct or not.
 """
 
 def validate_symbol(symbol):
-    """
-    Ensure the symbol is valid (string, uppercase).
-    """
+    if type(symbol) != str: #checks the type
+        return False
+    else:
+        return symbol.isupper()
     pass
 
 def validate_timestamp(ts):
