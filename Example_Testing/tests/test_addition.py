@@ -1,5 +1,5 @@
 """This is needed to describe the file"""
-from functions.addition import add
+from Example_Testing.Functions.addition import add
 
 def test_add_positive_numbers():
     """This is needed to describe the function"""

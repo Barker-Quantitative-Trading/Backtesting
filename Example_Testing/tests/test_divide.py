@@ -1,6 +1,6 @@
 """This is needed to describe the file"""
 import pytest
-from functions.divide import divide
+from Example_Testing.Functions.divide import divide
 
 def test_divide_normal():
     """This is needed to describe the function"""
