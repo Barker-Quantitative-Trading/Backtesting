@@ -42,6 +42,8 @@ def validate_timestamp(ts):
     pass
 
 def validate_candle(open_price, high, low, close, volume):
+    if type(open_price) != int or type(high) != int or type(low) != int or type(close) != int or type(volume) != int:
+        return False
     if open_price < 0 or high < 0 or low < 0 or volume < 0 or close < 0: #checks if any of the variables are negative
         return False
     elif low > high: #confirms that low is lower than high

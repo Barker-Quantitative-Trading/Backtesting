@@ -13,6 +13,7 @@ def test_validation():
     assert validate_candle(150, 120, 170, 120, 15564) == False #checks for low < high flag
     assert validate_candle(170, 150, 120, 125, 6152) == False #checks open_price > high flag
     assert validate_candle(150, 170, 120, 125, -5) == False #checks negative flag
+    assert validate_candle(20, "str", 120, 125, -5) == False
 
     #validate_timestamp(ts)
     assert validate_timestamp("2019-01-02T00:00:00.000+04:00") == True
