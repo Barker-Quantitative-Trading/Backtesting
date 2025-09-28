@@ -1,4 +1,4 @@
-from data.services.fetch_tiingo import fetch_candle, fetch_asset
+from src.data.services.fetch_tiingo import fetch_candle, fetch_asset
 
 def test_fetch_candle_without_end_date():
     """Tests fetching a candle with only a start date."""

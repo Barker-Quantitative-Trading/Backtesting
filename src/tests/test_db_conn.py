@@ -1,4 +1,4 @@
-from data.db import get_db_connection 
+from src.data.db import get_db_connection 
 import pytest
 
 def test_db_connection_and_query():

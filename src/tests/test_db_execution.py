@@ -1,5 +1,5 @@
 import pytest
-from data.db import get_db_connection, execute_query, execute_update
+from src.data.db import get_db_connection, execute_query, execute_update
 
 @pytest.fixture(scope="function")
 def db_test_table():
