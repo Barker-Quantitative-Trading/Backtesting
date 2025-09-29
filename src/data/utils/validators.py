@@ -14,6 +14,7 @@ raw API responses and the database layer.
 Helper functions to validate data before inserting into the DB.
 These should return bool values if correct or not.
 """
+from datetime import datetime
 
 def validate_symbol(symbol):
     if type(symbol) != str: #checks the type
