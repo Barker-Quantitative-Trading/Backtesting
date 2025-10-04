@@ -12,9 +12,8 @@ Date Last Updated: 09-24-2025
 - [1 Introduction](#1-introduction)
 - [2 System Overview](#2-system-overview)
 - [3 System Architecture](#3-system-architecture)
-- [4 Tools and Tech Stack](#4-tools-and-tech-stack)
-- [5 Requirements Matrix](#5-requirements-matrix)
-- [6 Appendices](#6-appendices)
+- [4 Requirements Matrix](#5-requirements-matrix)
+- [5 Appendices](#6-appendices)
 
 ## 1 Introduction
 
@@ -76,23 +75,9 @@ The data layer should pull data from a source like tiingo and store it in a data
 
 The reporting layer will be the most tied to the front end and again should be modular. More ratios should be easy to add and information processing. It should be ready to pull from the execution layer and process in a meaningfull way. A class structure could be used with each method calculating ratios.
 
-## 4 Tools and Tech Stack
+This structure is to encourage easy changes. When designing and planning it should be considered that this will be the base of the rest of the backtest and possibly for the rest of the algo. This is not a one time project so be ready for the scope of the project to change. I believe the current structure will force modularity and the scope wont be too large for each layer.
 
-### 4.1 Tools
-
-- pytest
-
-- pylint
-
-### 4.2 Tech Stack
-
-Backend: Python
-
-Database: PostgreSQL
-
-Data Source: Tiingo
-
-## 5 Requirements Matrix
+## 4 Requirements Matrix
 Requirement 1: A database that can pull and store market information that is always expanding and varying. Should be able to work on multiple time frames.
 
 Requirement 2: An algorithm that can execute trades like a real brokerage but speed up time so that you can backtest a strategy over 20 years within a few minutes.
@@ -101,7 +86,7 @@ Requirement 3: A way of defining trading rules that can always change and suppor
 
 Requirment 4: A way to take information and transform it into usable information. Should calculate ratios and create meaningfull graphs and tables of equity and drawdown.
 
-## 6 Appendices
+## 5 Appendices
 Based on [Software Design Document (SDD) Template ](https://devlegalsimpli.blob.core.windows.net/pdfseoforms/pdf-20180219t134432z-001/pdf/software-design-document-2.pdf)
 
 And https://gist.github.com/shenhab/15dbb9eb5422c07f497bf17de299b28d
