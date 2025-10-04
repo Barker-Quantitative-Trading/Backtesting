@@ -61,7 +61,7 @@ Once the backtest has concluded the execution layer will send all the informatio
 
 ### 3.1 Architectural Design
 
-![Backtest Dataflow Diagram](images/Backtest_Design.png)
+![Backtest Dataflow Diagram](images/PlatformDesign.drawio.svg)
 
 ### 3.2 Design Rationale
 
