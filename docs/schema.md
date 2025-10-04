@@ -1,6 +1,6 @@
 # Market Data Database Schema
 
-This document describes the database schema used for storing market data, user information, and other application data. The schema is implemented code is in `getting_started_PSQL.md`.
+This document describes the database schema used for storing market data, user information, and other application data. The schema implementation code is in `getting_started_PSQL.md`.
 
 ---
 
