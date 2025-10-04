@@ -62,7 +62,7 @@ Once the backtest has concluded the execution layer will send all the informatio
 
 ### 3.1 Architectural Design
 
-![Design Diagram](images/Screenshot%202025-09-21%20at%202.14.25%E2%80%AFPM.png)
+![Backtest Dataflow Diagram](images/Backtest_Design.png)
 
 ### 3.2 Design Rationale
 
@@ -75,8 +75,6 @@ The execution layer should solely handle processing trades. Taking the rules def
 The data layer should pull data from a source like tiingo and store it in a database. The data layer will also be responsible for providing an interface for other layers to request data. This layer should be able to easily expand and store data from different time periods. An example may be that initially you may store data on a daily basis but later should be able to easily transition and store hour or minute data.
 
 The reporting layer will be the most tied to the front end and again should be modular. More ratios should be easy to add and information processing. It should be ready to pull from the execution layer and process in a meaningfull way. A class structure could be used with each method calculating ratios.
-
-This structure is to encourage easy changes. When designing and planning it should be considered that this will be the base of the rest of the backtest and possibly for the rest of the algo. This is not a one time project so be ready for the scope of the project to change. I believe the current structure will force modularity and the scope wont be too large for each layer.
 
 ## 4 Tools and Tech Stack
 
