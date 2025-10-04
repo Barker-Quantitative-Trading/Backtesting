@@ -21,39 +21,39 @@ def create_user(username, email, password, settings):
         settings (JSONB): json file for additional settings
 
     Returns:
-        int: The number of rows affected (1 if successful, 0 on failure/conflict).
+        int: The id that is created for the user
     """
 
-def get_user_by_username(username):
+def get_user_by_username(id):
     """
     Retrieves a user's data by their username.
 
     Args:
-        username (str): The username to search for.
+        id (int): To search for the user.
 
     Returns:
         dict: A dictionary of the user's data, or None if not found.
     """
 
 
-def get_user_with_password_hash(username):
+def get_user_with_password_hash(id):
     """
     Retrieves a user's data including the password hash.
     This should only be used for authentication checks.
 
     Args:
-        username (str): The username to search for.
+        id (int): To search for the user.
 
     Returns:
         dict: A dictionary of the user's data, or None if not found.
     """
 
-def delete_user(username):
+def delete_user(id):
     """
     Deletes a user from the database by their username.
 
     Args:
-        username (str): The username of the user to delete.
+        id (int): To search for the user.
 
     Returns:
         int: The number of rows affected.
