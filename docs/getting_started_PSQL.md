@@ -81,7 +81,51 @@ COMMENT ON COLUMN ticks.source IS 'Data source, e.g., Tiingo, Yahoo, Polygon';
 -- Index for efficient time-series queries
 CREATE INDEX idx_ticks_asset_ts ON ticks (asset_id, ts);
 
--- 3. candle table
+-- 3. Users table
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    settings JSONB DEFAULT '{}' -- Flexible JSONB column for user preferences/settings
+);
+
+COMMENT ON TABLE users IS 'Stores user accounts and credentials';
+COMMENT ON COLUMN users.settings IS 'Flexible JSONB column for user-specific settings and preferences';
+
+-- 4. User Secrets table
+CREATE TABLE user_secrets (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    key_name TEXT NOT NULL, 
+    encrypted_value TEXT NOT NULL, 
+    UNIQUE (user_id, key_name) -- A user can only have one secret per key_name
+);
+
+COMMENT ON TABLE user_secrets IS 'Stores encrypted API keys and other sensitive user-specific secrets.';
+COMMENT ON COLUMN user_secrets.key_name IS 'A descriptive name for the secret (e.g., "tiingo_api_key").';
+COMMENT ON COLUMN user_secrets.encrypted_value IS 'The encrypted value of the secret.';
+
+CREATE INDEX idx_user_secrets_user_id ON user_secrets (user_id);
+
+-- 4. Posts table
+CREATE TABLE posts (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    username TEXT NOT NULL,
+    text TEXT NOT NULL,
+    strategy TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+COMMENT ON TABLE posts IS 'Stores user-created posts, potentially related to strategies or market discussion.';
+COMMENT ON COLUMN posts.strategy IS 'Optional link to a specific trading strategy.';
+
+-- Index for retrieving posts by user
+CREATE INDEX idx_posts_user_id ON posts (user_id);
+
+
+-- 5. candle table
 CREATE TABLE candle (
     id BIGSERIAL PRIMARY KEY,
     asset_id INT NOT NULL REFERENCES assets(id) ON DELETE CASCADE,
