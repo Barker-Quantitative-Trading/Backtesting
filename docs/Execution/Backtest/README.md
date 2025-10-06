@@ -15,3 +15,11 @@ Architecture diagram depicting the architecture of the backend service.
 ![Architecture Diagram](/docs/Execution/Backtest/Diagrams/Architecture/Architecture.drawio.svg)
 
 [Architecture Mermaid](/docs/Execution/Backtest/Diagrams/Architecture/Architecture.mmd)
+
+## Class Diagram
+
+Class diagram for the backtesting design.
+
+![Class Diagram](/docs/Execution/Backtest/Diagrams/Class/Class.drawio.svg)
+
+[Class Mermaid](/docs/Execution/Backtest/Diagrams/Class/Class.mmd)

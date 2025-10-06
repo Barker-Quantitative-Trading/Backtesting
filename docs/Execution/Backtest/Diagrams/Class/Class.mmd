@@ -1,0 +1,51 @@
+%%{init: {"classDiagram": {"useMaxWidth": true}} }%%
+classDiagram
+	direction LR
+
+	%% Class diagram for API Handlers and Backtesting Services
+	%% Strategy and Data layer components are intentionally excluded
+
+	namespace API {
+		class BacktestController {
+			+start(startDate: Date, endDate: Date): BacktestReport
+			-service: BacktestingService
+		}
+	}
+
+	namespace Services {
+		class BacktestingService {
+			+backtesting(startDate: Date, endDate: Date): BacktestReport
+			-checkStrategiesExist(): bool
+			-generateReport(): BacktestReport
+			-engine: BacktestingEngine
+		}
+
+		class BacktestingEngine {
+			+runStep(): void
+			+getState(): BacktestState
+			-updateState(): void
+			-incrementTime(): void
+			-state: BacktestState
+		}
+
+		class BacktestState {
+			+currentTime: datetime
+			+cash: float
+			+positions: map<string, float>
+		}
+
+		class BacktestReport {
+			+startDate: Date
+			+endDate: Date
+			+equityCurve: float[]
+			+tradesCount: int
+			+stats: map<string, float>
+		}
+	}
+
+	%% Relationships
+	API.BacktestController --> Services.BacktestingService : calls
+	Services.BacktestingService *-- Services.BacktestingEngine : orchestrates
+	Services.BacktestingEngine o-- Services.BacktestState : maintains
+	Services.BacktestingService --> Services.BacktestReport : returns
+
