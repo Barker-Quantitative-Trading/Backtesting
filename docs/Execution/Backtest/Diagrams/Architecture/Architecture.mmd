@@ -1,0 +1,59 @@
+%%{init: {"flowchart": {"curve": "monotoneX", "htmlLabels": true}} }%%
+flowchart LR
+	%% Architecture derived from Sequence.mmd
+	%% Participants: Strategy Layer, API handlers, Backtesting Services, Strategy Store, Fetch Data
+
+	%% Layers / Subsystems
+	subgraph Strategy["Strategy Layer"]
+		direction TB
+		strategy["Strategy (user-defined)"]
+	end
+
+	subgraph API["API Handlers"]
+		direction TB
+		handlers["Backtest API Handlers"]
+	end
+
+	subgraph Engine["Backtesting Services"]
+		direction TB
+		engine["Backtesting Engine"]
+	end
+
+	subgraph Data["Data & Storage"]
+		direction TB
+		fetch["Fetch Data Service"]
+			%% database/cylinder shape
+			store[("Strategy Store")]
+	end
+
+	subgraph External["External Market Data"]
+		direction TB
+		extAPI["Market Data API"]
+	end
+
+	%% Data provider relationship
+	fetch -->|"HTTP/REST"| extAPI
+
+	%% Primary request path
+	strategy -->|"Start (startDate, endDate)"| handlers
+	handlers -->|"backtesting(startDate, endDate)"| engine
+
+	%% Engine <-> Store responsibilities
+	engine -->|"Check strategies exist"| store
+	store -->|"exists: true/false"| engine
+
+	%% Execution loop responsibilities (abstracted at architecture level)
+	engine -->|"Get data"| fetch
+	fetch -->|"OHLCV, instruments"| engine
+	engine -->|"Run execution / persist state"| store
+
+	%% Reporting path
+	engine -->|"Report"| handlers
+	handlers -->|"Report"| strategy
+
+	%% Visual layout hints (no semantics)
+	Strategy --- API
+	API --- Engine
+	Engine --- Data
+	Data --- External
+
