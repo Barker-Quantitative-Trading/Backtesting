@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant strategy as Strategy Layer
+    participant handlers as API handlers
+    participant service as Backtesting Services
+    participant store as Strategy Store
+    participant fetch as Fetch Data
+
+    strategy->>handlers: Start (startDate, endDate)
+    handlers->>service: backtesting(startDate, endDate)
+    service->>store: Check strategies exist
+    store-->>service: True
+    
+    alt Loop
+        service->>fetch: Get data
+        service->>store: Run execution with data
+        service->>service: Update state values
+        service->>service: Increment time
+    end
+
+    service-->>handlers: Report
+    handlers-->>strategy: Report
