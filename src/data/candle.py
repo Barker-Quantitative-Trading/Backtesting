@@ -14,7 +14,7 @@ def insert_candle(symbol, interval, timestamp, open_price, high, low, close, vol
     FROM candle
     INNER JOIN assets ON candle.asset_id = assets.id;
     """
-    execute_update(query)
+    execute_query(query)
     query="""
     INSERT INTO candle (symbol, interval, ts, open, high, low, close, volume, adj_open, adj_high, adj_low, adj_close, adj_volume, div_cash, split_factor) 
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
@@ -26,6 +26,12 @@ def get_candle(symbol, start_date, end_date):
     """
     Fetch candle data for a symbol within a date range.
     """
+    query= """ 
+    SELECT symbol, ts FROM candle
+    WHERE (ts BETWEEN %s AND %s) 
+    AND symbol = ANY(%s);
+    """
+    execute_query(query, (start_date, end_date, symbol))
     pass
 
 
