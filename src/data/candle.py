@@ -39,4 +39,9 @@ def delete_candle(symbol, date):
     """
     Delete candle data for a given symbol and date.
     """
+    query="""
+    DELETE FROM candle
+    WHERE symbol = '%s' AND ts = '%s';
+    """
+    execute_update(query, (symbol, date))
     pass
