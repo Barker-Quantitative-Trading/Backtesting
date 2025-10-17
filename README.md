@@ -21,7 +21,7 @@ Follow these steps to prep your machine and start contributing.
    ```bash
    bash setup_ubuntu.sh
    ```
-4. Happy coding 🎉
+4. Happy coding! 
 
 
 ## Detailed Setup
